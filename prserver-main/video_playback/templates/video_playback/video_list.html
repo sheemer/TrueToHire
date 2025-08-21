@@ -1,0 +1,10 @@
+<h2>Available Videos</h2>
+<ul>
+    {% for video in videos %}
+        <li>
+            <a href="{% url 'play_video' video.test_id %}">
+                Watch Video for Test ID {{ video.test_id }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

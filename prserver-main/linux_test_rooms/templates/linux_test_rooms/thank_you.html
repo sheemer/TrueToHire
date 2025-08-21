@@ -1,0 +1,23 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Thank You" %}</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'thankyou.css' %}">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <div class="container animate-in">
+            <h2 class="main-title">{% trans "Thank You!" %}</h2>
+            <p class="message">{% trans "Your test session has ended. We appreciate your time and effort." %}</p>
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

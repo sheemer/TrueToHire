@@ -1,0 +1,92 @@
+/* General Styles */
+.font-inter {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.bg-body {
+    background: linear-gradient(135deg, #1e1e2f 0%, #2a2a42 100%);
+}
+
+.text-gray-100 {
+    color: #e5e7eb;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+/* Main Content Styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.message {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #d1d1d1;
+    text-align: center;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(37, 37, 55, 0.9);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(74, 74, 157, 0.5);
+    width: 100%;
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    color: #d1d1d1;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-title {
+        font-size: 2.25rem;
+    }
+
+    .container {
+        max-width: 600px;
+    }
+}

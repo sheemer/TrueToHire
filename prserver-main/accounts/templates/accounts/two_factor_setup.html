@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Up Two-Factor Authentication</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Set Up Two-Factor Authentication</h1>
+    <p>Please scan this QR code with your authenticator app (e.g., Google Authenticator) or enter the secret key manually:</p>
+    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+    <p>Secret Key: {{ secret_key }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="otp">Enter OTP Code:</label>
+        <input type="text" id="otp" name="otp" required>
+        <button type="submit">Verify</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

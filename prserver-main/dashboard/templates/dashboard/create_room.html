@@ -1,0 +1,31 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Create Room" %}</title>
+    <link rel="stylesheet" href="{% static 'css/cre.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <div class="form animate-in">
+            <h2 class="main-title">{% trans "Create a New Room" %}</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="{% trans 'Enter room name' %}" required />
+                <button type="submit" class="cta-btn">{% trans "Create Room" %}</button>
+            </form>
+            {% if error %}
+                <p class="error-message animate-in">{{ error }}</p>
+            {% endif %}
+            <a href="{% url 'rooms' %}" class="cta-secondary animate-in">{% trans "Back to Rooms" %}</a>
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

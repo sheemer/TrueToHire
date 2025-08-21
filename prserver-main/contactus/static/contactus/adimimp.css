@@ -1,0 +1,4 @@
+body { background-color: #1e1e2f; color: white; font-family: Arial, sans-serif; }
+table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+th, td { border: 1px solid white; padding: 10px; text-align: left; }
+th { background-color: #6c5ce7; }

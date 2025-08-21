@@ -1,0 +1,37 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Login" %}</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'account/login.css' %}">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <h1 class="main-title animate-in">{% trans "Login" %}</h1>
+        {% if error %}
+            <p class="error-message animate-in">{{ error }}</p>
+        {% endif %}
+        <form method="post" class="form animate-in">
+            {% csrf_token %}
+            <span class="input-span">
+                <label for="username" class="label">{% trans "Username" %}</label>
+                <input type="text" name="username" id="username" placeholder="{% trans 'Username' %}" required />
+            </span>
+            <span class="input-span">
+                <label for="password" class="label">{% trans "Password" %}</label>
+                <input type="password" name="password" id="password" placeholder="{% trans 'Password' %}" required />
+            </span>
+            <span class="form-link"><a href="#">{% trans "Forgot password?" %}</a></span>
+            <input class="cta-btn" type="submit" value="{% trans 'Log in' %}" />
+            <span class="form-link">{% trans "Don't have an account?" %} <a href="{% url 'signup' %}">{% trans "Sign up" %}</a></span>
+        </form>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

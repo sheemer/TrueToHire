@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'account/2faatart.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="two-factor-container">
+  <h1>{% trans "Two-Factor Authentication Backup Tokens" %}</h1>
+
+  {% if backup_tokens %}
+    {% if reveal_tokens %}
+      <ul class="token-list">
+        {% for token in backup_tokens %}
+          <li>{{ token.token }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>{% trans 'Backup tokens have been generated, but are not revealed here for security reasons. Press the button below to generate new ones.' %}</p>
+    {% endif %}
+  {% else %}
+    <p>{% trans 'No tokens. Press the button below to generate some.' %}</p>
+  {% endif %}
+
+  <form method="post" class="token-form">
+    {% csrf_token %}
+    <button type="submit">{% trans 'Generate backup tokens' %}</button>
+  </form>
+
+  <div class="actions">
+    <a class="dashboard-btn" href="{% url 'rooms' %}">{% trans "Go to Dashboard" %}</a>
+  </div>
+</div>
+{% endblock %}

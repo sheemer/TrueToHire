@@ -1,0 +1,13 @@
+{% extends "two_factor/core.html" %}
+{% block content %}
+    <h1>Setup Two-Factor Authentication</h1>
+
+    <p>Scan the QR code below with your authenticator app.</p>
+    {{ device.config_url|otp_qrcode }}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Verify</button>
+    </form>
+{% endblock %}

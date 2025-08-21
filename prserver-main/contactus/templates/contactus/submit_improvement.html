@@ -1,0 +1,28 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Submit Improvement" %}</title>
+    <link rel="stylesheet" href="{% static 'contactus/sumb.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <div class="form-container animate-in">
+            <h2 class="main-title">{% trans "Submit an Improvement / Bug Report" %}</h2>
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="cta-btn">{% trans "Submit" %}</button>
+            </form>
+            <a href="{% url 'rooms' %}" class="cta-secondary animate-in">{% trans "Back to Rooms" %}</a>
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

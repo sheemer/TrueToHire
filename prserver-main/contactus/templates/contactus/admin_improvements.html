@@ -1,0 +1,31 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin View - Improvements</title>
+    <link rel="stylesheet" href="{% static 'contactus/adimimp.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h2>Submitted Improvements</h2>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>User</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+        {% for improvement in improvements %}
+        <tr>
+            <td>{{ improvement.get_category_display }}</td>
+            <td>{{ improvement.title }}</td>
+            <td>{{ improvement.user }}</td>
+            <td>{{ improvement.description }}</td>
+            <td>{{ improvement.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

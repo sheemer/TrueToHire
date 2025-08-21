@@ -1,0 +1,31 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Video Playback" %}</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'video_playback/mainvd.css' %}">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <div class="container animate-in">
+            <h2 class="main-title">{% trans "Video Playback" %}</h2>
+            {% if video_url %}
+                <video controls autoplay class="video-player animate-in">
+                    <source src="{{ video_url }}" type="video/mp4">
+                    {% trans "Your browser does not support the video tag." %}
+                </video>
+            {% else %}
+                <p class="error-message animate-in">{% trans "Error:" %} {{ error }}</p>
+            {% endif %}
+            <a href="{% url 'rooms' %}" class="cta-secondary animate-in">{% trans "Back to Rooms" %}</a>
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

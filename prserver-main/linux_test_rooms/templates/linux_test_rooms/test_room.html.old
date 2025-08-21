@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Test Room</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://guac.truetohire.com/guacamole/guacamole-common-js/all.min.js"></script>
+</head>
+<body data-time-limit="{{ time_limit }}" data-instructions="{{ instructions|escapejs }}" guactunnelid="{{ guac_tunnel_id }}" guacToken="{{ guacamole_token }}">
+    <h1>{{ test_request.title }}</h1>
+    <p>Time Remaining: <span id="time">{{ time_limit }}:00</span></p>
+    <p>{{generate_guacamole_token}}</p>
+    <p>{{generate_guacamole_token_with_bash}}</p>
+    <button onclick="showInstructions('{{ instructions|escapejs }}')">View Instructions</button>
+
+    <!-- Hidden Instructions Modal -->
+    <div id="instructions-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:#1e1e2f; padding:20px; border:1px solid #ccc; z-index:9999;">
+    </div>
+    {% if instance %}
+    <div id="guac-display" data-token="{{ guacamole_token }}" data-identifier="{{ guacamole_connection_id }}" data-server="https://guac.truetohire.com"></div>
+    <!-- Form to end session -->
+    <form id="end-session-form" method="POST" action="{% url 'stop_instance' test_request.public_id %}">
+
+        {% csrf_token %}
+        <button type="submit">End Session</button>
+    </form>
+    {% else %}
+    <p>No instance available. Please contact support.</p>
+    {% endif %}
+<script type="text/javascript" src="{% static "laroom/laroom.js" %}"></script>
+</body>
+</html>

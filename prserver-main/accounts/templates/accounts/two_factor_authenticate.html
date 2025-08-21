@@ -1,0 +1,29 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Two-Factor Authentication" %}</title>
+    <link rel="stylesheet" href="{% static 'account/2fa.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <h2 class="main-title animate-in">{% trans "Two-Factor Authentication" %}</h2>
+        <p class="subtitle animate-in">{% trans "Enter the code from your authenticator app." %}</p>
+        {% if error %}
+            <p class="error-message animate-in">{{ error }}</p>
+        {% endif %}
+        <form method="POST" class="form animate-in">
+            {% csrf_token %}
+            <input type="text" name="otp" placeholder="{% trans 'Enter 2FA Code' %}" required />
+            <button type="submit" class="cta-btn">{% trans "Verify" %}</button>
+        </form>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Create Custom Test Image" %}</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <main>
+        <div class="container animate-in">
+            <h2 class="main-title">{% trans "Create a Custom Test Image" %}</h2>
+
+            {% if messages %}
+                <div class="message-container animate-in">
+                    {% for message in messages %}
+                        <p class="message {{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Instructions or Rules Block -->
+            <div class="info-card animate-in">
+                <h3 class="info-title">{% trans "How to Create Your Image" %}</h3>
+                <p>{% trans "Use this form to define a test environment that can be launched on demand." %}</p>
+                <p><strong>{% trans "Guidelines:" %}</strong></p>
+                <ul class="guideline-list">
+                    <li>{% trans "Only include legal software and open-source tools." %}</li>
+                    <li>{% trans "Use scripts to automate setup when needed." %}</li>
+                    <li>{% trans "Specify clear instructions for the test taker." %}</li>
+                </ul>
+            </div>
+
+            <!-- Button to Create New Test Image -->
+            <div class="actions animate-in">
+                <a href="{% url 'create_test' %}" class="cta-btn">{% trans "Create New Image" %}</a>
+            </div>
+
+            <!-- Optional Extra Section for Admin Notes or Tips -->
+            <div class="info-card animate-in">
+                <h3 class="info-title">{% trans "Admin Notes (Optional)" %}</h3>
+                <p>{% trans "This space can be used to display notices or tips for users who are creating test environments." %}</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

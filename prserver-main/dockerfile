@@ -1,0 +1,50 @@
+# Stage 1: Builder
+FROM python:3.12 AS builder
+
+# Install build dependencies as root
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc build-essential postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create non-root user set the number to be whatever pops up when doin a ls -la on  /var/run/docker.sock
+RUN groupadd -g 992 docker && groupadd -r timango && useradd -m -r -g timango -G docker timango
+
+# Switch to non-root user for Python tasks
+USER timango
+WORKDIR /home/timango/app
+
+# Upgrade pip and install Python dependencies
+RUN pip install --user --upgrade pip
+COPY --chown=timango:timango requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Production
+FROM python:3.12-slim
+
+# Install runtime dependencies as root
+RUN apt-get update && apt-get install -y libpq-dev postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create non-root user in production image
+RUN groupadd -g 992 docker && groupadd -r timango && useradd -m -r -g timango -G docker timango
+
+# Set working directory and create logs directory
+WORKDIR /home/timango/app
+RUN mkdir -p /home/timango/app/logs /home/timango/app/staticfiles && \
+    chown timango:timango /home/timango/app /home/timango/app/logs /home/timango/app/staticfiles
+# Copy Python dependencies from builder
+COPY --from=builder --chown=timango:timango /home/timango/.local /home/timango/.local
+
+# Copy application code
+COPY --chown=timango:timango . .
+# Ensure Python binaries are in PATH
+ENV PATH="/home/timango/.local/bin:$PATH"
+
+# Switch to non-root user
+USER timango
+# Expose port
+EXPOSE 8000
+RUN python manage.py collectstatic --noinput
+
+# Run Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "pr_server.wsgi:application"]

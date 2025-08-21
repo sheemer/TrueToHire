@@ -1,0 +1,43 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Test Room Groups" %}</title>
+    <link rel="stylesheet" href="{% static 'css/mian.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden">
+    <header class="header animate-in">
+        <div class="user-greeting">{% trans "Testing Groups" %}, {{ user.username }}</div>
+        <div class="action-buttons">
+            <a href="{% url 'create_room' %}" class="cta-btn">{% trans "Create New Room" %}</a>
+            <a href="{% url 'submit_improvement' %}" class="cta-btn">{% trans "Submit Improvement" %}</a>
+            <a href="{% url 'custom_image_home' %}" class="cta-btn">{% trans "Custom Images" %}</a>
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="cta-btn">{% trans "Log Out" %}</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        <div class="card-container animate-in">
+            {% for room in rooms %}
+                <div class="room-card animate-in">
+                    <a href="{% url 'room_detail' room.id %}" class="room-link">{{ room.name }}</a>
+                    <a href="{% url 'delete_room' room.id %}" class="cta-secondary">{% trans "Delete" %}</a>
+                </div>
+            {% empty %}
+                <p class="empty-message animate-in">{% trans "No rooms found. Create one!" %}</p>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Launching Test Environment</title>
+    <link rel="stylesheet" href="{% static 'css/time.css' %}">
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body data-public-id="{{ public_id }}">
+    <h2>Setting up your environment...</h2>
+    <p>This may take about a minute. You’ll be redirected shortly.</p>
+    <div class="spinner"></div>
+    <script src="{% static 'js/time.js' %}"></script>
+</body>
+</html>

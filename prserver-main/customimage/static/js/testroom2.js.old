@@ -1,0 +1,197 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const displayElement = document.querySelector('#guac-display');
+    const errorContainer = document.querySelector('#error-message');
+    const loadingSpinner = document.querySelector('#guac-loading');
+
+    if (!displayElement) {
+        console.error('Missing #guac-display element in DOM.');
+        return;
+    }
+
+    const token = displayElement.dataset.token;
+    const server = displayElement.dataset.server;
+    const rawId = displayElement.dataset.identifier;
+
+
+
+    const timeLimit = 60; // 60 minutes hardcoded
+
+    let client;
+    let canvas;
+    // Extract connection ID
+    const extractId = (id) => {
+        try {
+            const decoded = atob(id);
+            const match = decoded.match(/^\d+/);
+            return match ? match[0] : null;
+        } catch (error) {
+            console.error('Failed to decode connId:', error);
+            return null;
+        }
+    };
+    const connId = extractId(rawId);
+    if (!connId) {
+        showError('Invalid connection ID.');
+        return;
+    }
+
+    // Initialize Guacamole
+    const initialize = () => {
+        const tunnel = new Guacamole.HTTPTunnel(`${server}/guacamole/tunnel`);
+        client = new Guacamole.Client(tunnel);
+        canvas = client.getDisplay().getElement();
+        displayElement.appendChild(canvas);
+
+        // Connect
+        const connectStart = Date.now();
+        try {
+            client.connect(`GUAC_ID=${connId}&GUAC_TYPE=c&GUAC_DATA_SOURCE=postgresql&token=${token}`);
+        } catch (err) {
+            console.error('Connection failed:', err);
+            showError();
+        }
+
+        // Focus setup
+        canvas.tabIndex = 1;
+        canvas.style.outline = 'none';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+
+        // Mouse support
+        const mouse = new Guacamole.Mouse(canvas);
+        mouse.onmousedown = mouse.onmouseup = mouse.onmousemove = (state) => {
+            const sentTime = Date.now();
+            client.sendMouseState(state);
+            console.log(`Mouse event sent, latency: ${Date.now() - sentTime}ms`);
+        };
+
+        // Keyboard support
+        const keyboard = new Guacamole.Keyboard(canvas);
+        keyboard.onkeydown = (keysym) => {
+            const sentTime = Date.now();
+            client.sendKeyEvent(1, keysym);
+            console.log(`Key event sent (down), latency: ${Date.now() - sentTime}ms`);
+            return false;
+        };
+        keyboard.onkeyup = (keysym) => {
+            const sentTime = Date.now();
+            client.sendKeyEvent(0, keysym);
+            console.log(`Key event sent (up), latency: ${Date.now() - sentTime}ms`);
+            return false;
+        };
+
+        // Focus canvas
+        const focus = () => canvas.focus();
+        setTimeout(focus, 500);
+        canvas.addEventListener('click', focus);
+
+        // State changes
+        let reconnectCount = 0;
+        const maxReconnects = 3;
+        client.onstatechange = (state) => {
+            console.log('Guacamole state:', state);
+            if (state === 3) { // Connected
+                const connectTime = Date.now() - connectStart;
+                console.log(`Connected in ${connectTime}ms. Scaling display.`);
+                loadingSpinner.style.display = 'none';
+                errorContainer.style.display = 'none';
+                setTimeout(() => requestAnimationFrame(scaleDisplay), 1000);
+                reconnectCount = 0;
+            } else if (state === 5 && reconnectCount < maxReconnects) { // Disconnected
+                console.warn(`Disconnected. Attempting reconnect (${reconnectCount + 1}/${maxReconnects})...`);
+                showError('Reconnecting...');
+                reconnectCount++;
+                setTimeout(() => {
+                    try {
+                        client.connect(`GUAC_ID=${connId}&GUAC_TYPE=c&GUAC_DATA_SOURCE=postgresql&token=${token}`);
+                    } catch (err) {
+                        console.error('Reconnect failed:', err);
+                        showError();
+                    }
+                }, 3000);
+            } else if (state === 5) {
+                showError('Connection lost. Please refresh or contact support.');
+            }
+        };
+
+        // Errors
+        client.onerror = (error) => {
+            console.error('Guacamole error:', error);
+            showError();
+        };
+
+        // Resize handling
+        const resize = () => requestAnimationFrame(scaleDisplay);
+        window.addEventListener('resize', resize);
+
+        // Disconnect on unload
+        window.addEventListener('beforeunload', () => client.disconnect());
+    };
+
+    // Manual reconnect
+    window.reconnect = () => {
+        if (client) client.disconnect();
+        displayElement.innerHTML = '<div id="loading-spinner" class="loading-spinner">{% trans "Connecting..." %}</div><div id="error-container" class="error-message" style="display: none;"></div>';
+        initialize();
+    };
+
+    // Display scaling
+    const scaleDisplay = (retry = 0) => {
+        const display = client.getDisplay();
+        const container = displayElement;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const nativeWidth = display.getWidth();
+        const nativeHeight = display.getHeight();
+
+        if (nativeWidth > 0 && nativeHeight > 0 && width > 0 && height > 0) {
+            const scale = Math.max(width / nativeWidth, height / nativeHeight);
+            display.scale(scale);
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.position = 'relative';
+            canvas.style.left = '0';
+            canvas.style.top = '0';
+            console.log(`Scaled display: ${nativeWidth}x${nativeHeight} to ${width}x${height} at scale ${scale}`);
+        } else if (retry < 20) {
+            console.log(`Display or container size not ready (native: ${nativeWidth}x${nativeHeight}, container: ${width}x${height}), retrying scale...`);
+            setTimeout(() => requestAnimationFrame(scaleDisplay.bind(null, retry + 1)), 500);
+        } else {
+            console.warn('Failed to scale Guacamole display after multiple attempts.');
+            showError('Failed to initialize display size.');
+        }
+    };
+
+    // Show error message
+    const showError = (message = '{% trans "Failed to connect to the test environment." %}') => {
+        loadingSpinner.style.display = 'none';
+        errorContainer.style.display = 'block';
+        errorContainer.textContent = message;
+        canvas.style.display = 'none';
+    };
+
+    // Timer logic
+    let timeRemaining = timeLimit * 60;
+    const timeDisplay = document.querySelector('#time-remaining');
+    const form = document.querySelector('#end-session');
+    if (!timeDisplay || !form) {
+        console.error('Timer or form element not found.');
+    } else {
+        const timerInterval = setInterval(() => {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                timeDisplay.textContent = '00:00';
+                form.submit();
+            } else {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                timeRemaining--;
+            }
+        }, 1000);
+    }
+
+    // Initialize
+    initialize();
+});

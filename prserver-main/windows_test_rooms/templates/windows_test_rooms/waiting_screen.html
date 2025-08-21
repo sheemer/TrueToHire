@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Starting Soon</title>
+    <script src="{% static "waiting.js" %}"></script>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h2>Your test is starting soon...</h2>
+    <p>Time remaining: <span id="timer">2:00</span></p>
+</body>
+</html>

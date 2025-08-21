@@ -1,0 +1,42 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Custom Test Room" %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/testroom.css' %}">
+    <script src="https://guac.truetohire.com/guacamole/guacamole-common-js/all.min.js"></script>
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-x-hidden" 
+      guactunnelid="{{ guac_tunnel_id }}" 
+      guacToken="{{ guacamole_token }}">
+    <main>
+        <div class="container animate-in">
+            <h2 class="main-title">{% trans "Welcome to the Test Room Creator:" %} {{ test_request.title }}</h2>
+            {% if instance %}
+                <div id="guac-display" class="guac-display" 
+                     data-token="{{ guacamole_token }}" 
+                     data-identifier="{{ guacamole_connection_id }}" 
+                     data-server="https://guac.truetohire.com">
+                    <div id="guac-error" class="error-message" style="display: none;">
+                        {% trans "Failed to connect to the test environment. Please try refreshing or contact support." %}
+                    </div>
+                </div>
+                <!-- Form to end session -->
+                <form id="end-session-form" method="POST" action="{% url 'stop_instances' test_request.public_id %}" class="animate-in">
+                    {% csrf_token %}
+                    <button type="submit" class="cta-btn">{% trans "End Session" %}</button>
+                </form>
+            {% else %}
+                <p class="error-message animate-in">{% trans "No instance available. Please contact support." %}</p>
+            {% endif %}
+        </div>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'js/testroom2.js' %}"></script>
+</body>
+</html>

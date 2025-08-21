@@ -1,0 +1,59 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Test Room" %}</title>
+    <link rel="stylesheet" href="{% static 'laroom/laroom.css' %}">
+    <script src="https://guac.truetohire.com/guacamole/guacamole-common-js/all.min.js"></script>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-100 overflow-hidden">
+    <div class="layout-wrapper">
+        <aside class="top-bar">
+            <div class="top-bar-content">
+                <h2 class="main-title">{% trans "Test Room:" %}<br>{{ test_request.title }}</h2>
+                <p class="timer">{% trans "Time Remaining:" %} <span id="time">{{ time_limit }}:00</span></p>
+                <div class="top-bar-buttons">
+                    <button class="cta-secondary" onclick="showInstructions('{{ instructions|safe }}')">{% trans "Show Instructions" %}</button>
+                    <div id="instructions-modal" class="modal">
+                        <div class="modal-content">
+                          <span class="modal-close">&times;</span>
+                          <div id="modal-instructions">{% trans "No instructions provided." %}</div>
+                        </div>
+                    </div>
+                    {% if test_request.public_id %}
+                        <form id="end-session-form" method="POST" action="{% url 'stop_instance' test_request.public_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="cta-btn">{% trans "End Session" %}</button>
+                        </form>
+                    {% else %}
+                        <p class="error-message">{% trans "Invalid test ID." %}</p>
+                    {% endif %}
+                    <button class="cta-secondary" onclick="reconnect()">{% trans "Reconnect" %}</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="guacamole-wrapper">
+            {% if instance %}
+                <div class="guac-wrapper-centered">
+                    <div id="guac-display" class="guacamole-display guac-container-parent"
+                        data-token="{{ guacamole_token }}"
+                        data-identifier="{{ guacamole_connection_id }}"
+                        data-server="https://guac.truetohire.com">
+                        <div class="guac-canvas-container"></div>
+                        <div id="guac-loading" class="loading-spinner">{% trans "Connecting..." %}</div>
+                        <div id="error-message" class="error-message" style="display: none;">
+                            {% trans "Failed to connect to the test environment." %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p class="error-message">{% trans "No instance available." %}</p>
+            {% endif %}
+        </main>
+    </div>
+    <script src="{% static 'laroom/laroom.js' %}"></script>
+</body>

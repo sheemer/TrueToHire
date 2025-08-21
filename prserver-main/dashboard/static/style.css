@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e2f;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #252537;
+    border-bottom: 2px solid #4a4a9d;
+}
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.test-rooms {
+    margin-bottom: 30px;
+}
+
+.test-rooms table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #2a2a3b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.test-rooms th, .test-rooms td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.test-rooms th {
+    background-color: #33354d;
+    color: #fff;
+    font-weight: bold;
+}
+
+.test-rooms tr:nth-child(even) {
+    background-color: #2e2e40;
+}
+
+.test-rooms tr:hover {
+    background-color: #383851;
+}
+
+.email-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.email-form input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 60%;
+    background-color: #3d3d55;
+    color: #fff;
+}
+
+.email-form button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.email-form button:hover {
+    background-color: #0056b3;
+}
+
+.create-test {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.create-test:hover {
+    background-color: #0056b3;
+}

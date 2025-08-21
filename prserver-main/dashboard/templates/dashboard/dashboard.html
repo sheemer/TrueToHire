@@ -1,0 +1,115 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Dashboard" %}</title>
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}">
+    <script src="{% static 'js/dash.js' %}"></script>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+</head>
+<body class="font-inter bg-body text-gray-900 overflow-x-hidden">
+    <header class="header animate-in">
+        <div class="user-greeting">{% trans "Welcome" %}, {{ user.username }}</div>
+    </header>
+    <main>
+        <!-- Open Rooms Section -->
+        <section class="section animate-in">
+            <button class="collapsible-btn">{% trans "Open Rooms" %}</button>
+            <div class="content">
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{% trans "ID" %}</th>
+                                <th>{% trans "Title" %}</th>
+                                <th>{% trans "Test Type" %}</th>
+                                <th>{% trans "Created On" %}</th>
+                                <th>{% trans "Actions" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for test in open_test_requests %}
+                            <tr>
+                                <td>{{ test.id }}</td>
+                                <td>{{ test.title }}</td>
+                                <td>{{ test.test_type }}</td>
+                                <td>{{ test.date_created }}</td>
+                                <td>
+                                    <form method="post" class="email-form">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="test_id" value="{{ test.id }}">
+                                        <input type="email" name="email" placeholder="{% trans 'Enter recipient email' %}" required>
+                                        <button type="submit" class="cta-btn">{% trans "Send Link" %}</button>
+                                    </form>
+                                    <form method="post" action="{% url 'delete_test_request' test.id %}" class="delete-form">
+                                        {% csrf_token %}
+                                        <button type="submit" class="cta-secondary">{% trans "Delete" %}</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finished Rooms Section -->
+        <section class="section animate-in">
+            <button class="collapsible-btn">{% trans "Finished Rooms" %}</button>
+            <div class="content">
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{% trans "ID" %}</th>
+                                <th>{% trans "Title" %}</th>
+                                <th>{% trans "Test Type" %}</th>
+                                <th>{% trans "Created On" %}</th>
+                                <th>{% trans "Test Done" %}</th>
+                                <th>{% trans "Name Entered" %}</th>
+                                <th>{% trans "Actions" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for test in finished_test_requests %}
+                            <tr>
+                                <td>{{ test.id }}</td>
+                                <td>{{ test.title }}</td>
+                                <td>{{ test.test_type }}</td>
+                                <td>{{ test.date_created }}</td>
+                                <td>{{ test.is_accessed|yesno:"Yes,No" }}</td>
+                                <td>{{ test.accessed_by_name|default:"N/A" }}</td>
+                                <td>
+                                    {% if test.recorded_session %}
+                                        <a href="{% url 'video_playback:play_video' test.id %}" class="cta-btn">{% trans "Play Video" %}</a>
+                                    {% else %}
+                                        <span class="no-recording">{% trans "No Recording" %}</span>
+                                    {% endif %}
+                                    <form method="post" action="{% url 'delete_test_request' test.id %}" class="delete-form">
+                                        {% csrf_token %}
+                                        <button type="submit" class="cta-secondary">{% trans "Delete" %}</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Links Section -->
+        <section class="action-links animate-in">
+            <a href="/dashboard/create-test/" class="cta-btn">{% trans "Create New Test Request" %}</a>
+            <a href="{% url 'grouped_test_rooms' %}" class="cta-btn">{% trans "View Grouped Test Rooms" %}</a>
+        </section>
+    </main>
+    <footer class="footer animate-in">
+        <p class="footer-text">© 2025 Meric Sheehan. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</body>
+</html>
