@@ -1,0 +1,23 @@
+[nginx-http-auth]
+enabled = true
+filter = nginx-http-auth
+logpath = /var/log/error.log
+maxretry = 3
+bantime = 3600
+findtime = 600
+
+[nginx-botsearch]
+enabled  = true
+filter   = nginx-botsearch
+logpath  = /var/log/access.log
+maxretry = 5
+bantime = 3600
+findtime = 600
+
+[nginx-403]
+enabled = true
+filter = nginx-403
+logpath = /var/log/access.log
+maxretry = 5
+bantime = 1800
+findtime = 600

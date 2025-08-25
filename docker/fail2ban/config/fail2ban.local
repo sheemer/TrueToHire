@@ -1,0 +1,3 @@
+[Definition]
+loglevel = DEBUG
+logtarget = /var/log/fail2ban.log

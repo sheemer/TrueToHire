@@ -1,0 +1,323 @@
+ 2025-07-17 02:00:00,535 7FB9A5AB9B28 INFO  rollover performed on /config/log/fail2ban/fail2ban.log
+ 2025-07-17 03:33:39,975 7FB9A37E6B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 03:33:39
+ 2025-07-17 03:50:13,448 7FB9A5AB9B28 INFO  Shutdown in progress...
+ 2025-07-17 03:50:13,451 7FB9A5AB9B28 INFO  Observer stop ... try to end queue 5 seconds
+ 2025-07-17 03:50:13,471 7FB9A4036B38 INFO  Observer stopped, 0 events remaining.
+ 2025-07-17 03:50:13,511 7FB9A5AB9B28 INFO  Stopping all jails
+ 2025-07-17 03:50:13,512 7FB9A5AB9B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-17 03:50:13,512 7FB9A5AB9B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-17 03:50:13,512 7FB9A5AB9B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-17 03:50:13,512 7FB9A5AB9B28 INFO  Removed logfile: '/var/log/error.log'
+ 2025-07-17 03:50:13,718 7FB9A35DFB38 NOTIC [nginx-bad-request] Flush ticket(s) with iptables-multiport
+ 2025-07-17 03:50:14,181 7FB9A39EDB38 NOTIC [nginx-403] Flush ticket(s) with iptables-NGINX-403
+ 2025-07-17 03:50:14,181 7FB9A31D1B38 NOTIC [nginx-botsearch] Flush ticket(s) with iptables-multiport
+ 2025-07-17 03:50:14,181 7FB9A2DC3B38 NOTIC [nginx-http-auth] Flush ticket(s) with iptables-multiport
+ 2025-07-17 03:50:14,181 7FB9A5AB9B28 INFO  Jail 'nginx-403' stopped
+ 2025-07-17 03:50:14,195 7FB9A5AB9B28 INFO  Jail 'nginx-bad-request' stopped
+ 2025-07-17 03:50:14,195 7FB9A5AB9B28 INFO  Jail 'nginx-botsearch' stopped
+ 2025-07-17 03:50:14,195 7FB9A5AB9B28 INFO  Jail 'nginx-http-auth' stopped
+ 2025-07-17 03:50:14,195 7FB9A5AB9B28 INFO  Connection to database closed.
+ 2025-07-17 03:50:14,198 7FB9A5AB9B28 INFO  Exiting Fail2ban
+ 2025-07-17 03:51:16,295 7F529889EB28 INFO  --------------------------------------------------
+ 2025-07-17 03:51:16,295 7F529889EB28 INFO  Starting Fail2ban v1.1.0
+ 2025-07-17 03:51:16,295 7F5296E1FB38 INFO  Observer start...
+ 2025-07-17 03:51:16,309 7F529889EB28 INFO  Connected to fail2ban persistent database '/config/fail2ban/fail2ban.sqlite3'
+ 2025-07-17 03:51:16,310 7F529889EB28 INFO  Creating new jail 'nginx-403'
+ 2025-07-17 03:51:16,314 7F529889EB28 INFO  Jail 'nginx-403' uses poller {}
+ 2025-07-17 03:51:16,314 7F529889EB28 INFO  Initiated 'polling' backend
+ 2025-07-17 03:51:16,315 7F529889EB28 INFO    maxRetry: 3
+ 2025-07-17 03:51:16,315 7F529889EB28 INFO    findtime: 300
+ 2025-07-17 03:51:16,315 7F529889EB28 INFO    banTime: 3600
+ 2025-07-17 03:51:16,315 7F529889EB28 INFO    encoding: UTF-8
+ 2025-07-17 03:51:16,319 7F529889EB28 INFO  Added logfile: '/var/log/access.log' (pos = 116329, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-17 03:51:16,320 7F529889EB28 INFO  Creating new jail 'nginx-bad-request'
+ 2025-07-17 03:51:16,320 7F529889EB28 INFO  Jail 'nginx-bad-request' uses poller {}
+ 2025-07-17 03:51:16,320 7F529889EB28 INFO  Initiated 'polling' backend
+ 2025-07-17 03:51:16,321 7F529889EB28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO    maxRetry: 3
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO    findtime: 300
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO    banTime: 3600
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO    encoding: UTF-8
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO  Added logfile: '/var/log/access.log' (pos = 116329, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-17 03:51:16,328 7F529889EB28 INFO  Creating new jail 'nginx-botsearch'
+ 2025-07-17 03:51:16,329 7F529889EB28 INFO  Jail 'nginx-botsearch' uses poller {}
+ 2025-07-17 03:51:16,329 7F529889EB28 INFO  Initiated 'polling' backend
+ 2025-07-17 03:51:16,330 7F529889EB28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO    maxRetry: 5
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO    findtime: 600
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO    banTime: 3600
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO    encoding: UTF-8
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO  Added logfile: '/var/log/access.log' (pos = 116329, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-17 03:51:16,331 7F529889EB28 INFO  Creating new jail 'nginx-http-auth'
+ 2025-07-17 03:51:16,341 7F529889EB28 INFO  Jail 'nginx-http-auth' uses poller {}
+ 2025-07-17 03:51:16,341 7F529889EB28 INFO  Initiated 'polling' backend
+ 2025-07-17 03:51:16,342 7F529889EB28 INFO    maxRetry: 3
+ 2025-07-17 03:51:16,342 7F529889EB28 INFO    findtime: 600
+ 2025-07-17 03:51:16,343 7F529889EB28 INFO    banTime: 3600
+ 2025-07-17 03:51:16,343 7F529889EB28 INFO    encoding: UTF-8
+ 2025-07-17 03:51:16,343 7F529889EB28 INFO  Added logfile: '/var/log/error.log' (pos = 167143, hash = dfba8043ddfb83238cdf81044f5557e7a9da15d3)
+ 2025-07-17 03:51:16,349 7F529889EB28 INFO  Jail 'nginx-403' started
+ 2025-07-17 03:51:16,351 7F529889EB28 INFO  Jail 'nginx-bad-request' started
+ 2025-07-17 03:51:16,351 7F529889EB28 INFO  Jail 'nginx-botsearch' started
+ 2025-07-17 03:51:16,364 7F529889EB28 INFO  Jail 'nginx-http-auth' started
+ 2025-07-17 04:06:22,168 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 04:06:22
+ 2025-07-17 04:15:47,804 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 04:15:47
+ 2025-07-17 04:15:47,804 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 04:15:47
+ 2025-07-17 06:03:28,799 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 06:03:28
+ 2025-07-17 09:29:37,737 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 09:29:37
+ 2025-07-17 11:01:54,337 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 11:01:54
+ 2025-07-17 11:02:00,940 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 11:02:00
+ 2025-07-17 11:05:47,039 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 11:05:46
+ 2025-07-17 11:05:47,126 7F52963C8B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-17 11:05:47,147 7F52963C8B38 ERROR 7f5297c5ba50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-17 11:05:47,147 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 11:05:47,147 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 11:05:47,147 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 11:05:47,148 7F52963C8B38 ERROR 7f5297c5ba50 -- returned 4
+ 2025-07-17 11:05:47,148 7F52963C8B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f5297859e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f529785a5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-17 11:06:03,047 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 11:06:02
+ 2025-07-17 11:51:44,247 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 11:51:43
+ 2025-07-17 12:02:03,722 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 12:02:03
+ 2025-07-17 12:05:15,803 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 12:05:15
+ 2025-07-17 12:05:46,474 7F52963C8B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-17 17:40:51,995 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 17:40:51
+ 2025-07-17 19:00:21,139 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 19:00:20
+ 2025-07-17 19:00:21,139 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 19:00:20
+ 2025-07-17 19:00:21,341 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 19:00:21
+ 2025-07-17 19:00:21,398 7F52963C8B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR 7f5297c5ba50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR 7f5297c5ba50 -- returned 4
+ 2025-07-17 19:00:21,407 7F52963C8B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f5297859e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f529785a5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-17 19:55:07,306 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 19:55:07
+ 2025-07-17 20:00:21,308 7F52963C8B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-17 20:40:23,899 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 20:40:23
+ 2025-07-17 21:30:03,190 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 21:30:03
+ 2025-07-17 21:30:11,793 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-17 21:30:11
+ 2025-07-18 01:30:17,927 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 01:30:17
+ 2025-07-18 01:30:17,927 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 01:30:17
+ 2025-07-18 01:30:18,528 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 01:30:18
+ 2025-07-18 01:30:18,528 7F52965CFB38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 01:30:18
+ 2025-07-18 01:30:18,609 7F52963C8B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-18 01:30:18,617 7F52963C8B38 ERROR 7f5297c5ba50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-18 01:30:18,618 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 01:30:18,618 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 01:30:18,618 7F52963C8B38 ERROR 7f5297c5ba50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 01:30:18,618 7F52963C8B38 ERROR 7f5297c5ba50 -- returned 4
+ 2025-07-18 01:30:18,618 7F52963C8B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f5297859e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f529785a5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-18 02:30:18,166 7F52963C8B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-18 03:15:00,801 7F529889EB28 INFO  Shutdown in progress...
+ 2025-07-18 03:15:00,806 7F529889EB28 INFO  Observer stop ... try to end queue 5 seconds
+ 2025-07-18 03:15:00,827 7F5296E1FB38 INFO  Observer stopped, 0 events remaining.
+ 2025-07-18 03:15:00,867 7F529889EB28 INFO  Stopping all jails
+ 2025-07-18 03:15:00,867 7F529889EB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 03:15:00,868 7F529889EB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 03:15:00,868 7F529889EB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 03:15:00,868 7F529889EB28 INFO  Removed logfile: '/var/log/error.log'
+ 2025-07-18 03:15:01,134 7F52963C8B38 NOTIC [nginx-bad-request] Flush ticket(s) with iptables-multiport
+ 2025-07-18 03:15:01,244 7F5295FBAB38 NOTIC [nginx-botsearch] Flush ticket(s) with iptables-multiport
+ 2025-07-18 03:15:01,245 7F52967D6B38 NOTIC [nginx-403] Flush ticket(s) with iptables-NGINX-403
+ 2025-07-18 03:15:01,245 7F5295BACB38 NOTIC [nginx-http-auth] Flush ticket(s) with iptables-multiport
+ 2025-07-18 03:15:01,341 7F529889EB28 INFO  Jail 'nginx-403' stopped
+ 2025-07-18 03:15:01,341 7F529889EB28 INFO  Jail 'nginx-bad-request' stopped
+ 2025-07-18 03:15:01,341 7F529889EB28 INFO  Jail 'nginx-botsearch' stopped
+ 2025-07-18 03:15:01,342 7F529889EB28 INFO  Jail 'nginx-http-auth' stopped
+ 2025-07-18 03:15:01,342 7F529889EB28 INFO  Connection to database closed.
+ 2025-07-18 03:15:01,343 7F529889EB28 INFO  Exiting Fail2ban
+ 2025-07-18 03:15:21,084 7FD621799B28 INFO  --------------------------------------------------
+ 2025-07-18 03:15:21,084 7FD621799B28 INFO  Starting Fail2ban v1.1.0
+ 2025-07-18 03:15:21,085 7FD61FD18B38 INFO  Observer start...
+ 2025-07-18 03:15:21,098 7FD621799B28 INFO  Connected to fail2ban persistent database '/config/fail2ban/fail2ban.sqlite3'
+ 2025-07-18 03:15:21,099 7FD621799B28 INFO  Creating new jail 'nginx-403'
+ 2025-07-18 03:15:21,101 7FD621799B28 INFO  Jail 'nginx-403' uses poller {}
+ 2025-07-18 03:15:21,101 7FD621799B28 INFO  Initiated 'polling' backend
+ 2025-07-18 03:15:21,102 7FD621799B28 INFO    maxRetry: 3
+ 2025-07-18 03:15:21,102 7FD621799B28 INFO    findtime: 300
+ 2025-07-18 03:15:21,103 7FD621799B28 INFO    banTime: 3600
+ 2025-07-18 03:15:21,103 7FD621799B28 INFO    encoding: UTF-8
+ 2025-07-18 03:15:21,112 7FD621799B28 INFO  Added logfile: '/var/log/access.log' (pos = 167428, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 03:15:21,112 7FD621799B28 INFO  Creating new jail 'nginx-bad-request'
+ 2025-07-18 03:15:21,112 7FD621799B28 INFO  Jail 'nginx-bad-request' uses poller {}
+ 2025-07-18 03:15:21,112 7FD621799B28 INFO  Initiated 'polling' backend
+ 2025-07-18 03:15:21,114 7FD621799B28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO    maxRetry: 3
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO    findtime: 300
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO    banTime: 3600
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO    encoding: UTF-8
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO  Added logfile: '/var/log/access.log' (pos = 167428, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 03:15:21,116 7FD621799B28 INFO  Creating new jail 'nginx-botsearch'
+ 2025-07-18 03:15:21,122 7FD621799B28 INFO  Jail 'nginx-botsearch' uses poller {}
+ 2025-07-18 03:15:21,122 7FD621799B28 INFO  Initiated 'polling' backend
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO    maxRetry: 5
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO    findtime: 600
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO    banTime: 3600
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO    encoding: UTF-8
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO  Added logfile: '/var/log/access.log' (pos = 167428, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 03:15:21,128 7FD621799B28 INFO  Creating new jail 'nginx-http-auth'
+ 2025-07-18 03:15:21,129 7FD621799B28 INFO  Jail 'nginx-http-auth' uses poller {}
+ 2025-07-18 03:15:21,129 7FD621799B28 INFO  Initiated 'polling' backend
+ 2025-07-18 03:15:21,130 7FD621799B28 INFO    maxRetry: 3
+ 2025-07-18 03:15:21,130 7FD621799B28 INFO    findtime: 600
+ 2025-07-18 03:15:21,130 7FD621799B28 INFO    banTime: 3600
+ 2025-07-18 03:15:21,130 7FD621799B28 INFO    encoding: UTF-8
+ 2025-07-18 03:15:21,130 7FD621799B28 INFO  Added logfile: '/var/log/error.log' (pos = 168459, hash = dfba8043ddfb83238cdf81044f5557e7a9da15d3)
+ 2025-07-18 03:15:21,138 7FD621799B28 INFO  Jail 'nginx-403' started
+ 2025-07-18 03:15:21,139 7FD621799B28 INFO  Jail 'nginx-bad-request' started
+ 2025-07-18 03:15:21,139 7FD621799B28 INFO  Jail 'nginx-botsearch' started
+ 2025-07-18 03:15:21,143 7FD621799B28 INFO  Jail 'nginx-http-auth' started
+ 2025-07-18 04:05:44,180 7FD621799B28 INFO  Shutdown in progress...
+ 2025-07-18 04:05:44,195 7FD621799B28 INFO  Observer stop ... try to end queue 5 seconds
+ 2025-07-18 04:05:44,215 7FD61FD18B38 INFO  Observer stopped, 0 events remaining.
+ 2025-07-18 04:05:44,255 7FD621799B28 INFO  Stopping all jails
+ 2025-07-18 04:05:44,255 7FD621799B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 04:05:44,255 7FD621799B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 04:05:44,255 7FD621799B28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-18 04:05:44,255 7FD621799B28 INFO  Removed logfile: '/var/log/error.log'
+ 2025-07-18 04:05:44,285 7FD61F2C1B38 NOTIC [nginx-bad-request] Flush ticket(s) with iptables-multiport
+ 2025-07-18 04:05:44,286 7FD61EEB3B38 NOTIC [nginx-botsearch] Flush ticket(s) with iptables-multiport
+ 2025-07-18 04:05:44,286 7FD61EAA5B38 NOTIC [nginx-http-auth] Flush ticket(s) with iptables-multiport
+ 2025-07-18 04:05:44,286 7FD61F6CFB38 NOTIC [nginx-403] Flush ticket(s) with iptables-NGINX-403
+ 2025-07-18 04:05:44,488 7FD621799B28 INFO  Jail 'nginx-403' stopped
+ 2025-07-18 04:05:44,492 7FD621799B28 INFO  Jail 'nginx-bad-request' stopped
+ 2025-07-18 04:05:44,492 7FD621799B28 INFO  Jail 'nginx-botsearch' stopped
+ 2025-07-18 04:05:44,492 7FD621799B28 INFO  Jail 'nginx-http-auth' stopped
+ 2025-07-18 04:05:44,493 7FD621799B28 INFO  Connection to database closed.
+ 2025-07-18 04:05:44,493 7FD621799B28 INFO  Exiting Fail2ban
+ 2025-07-18 04:06:09,672 7F140153DB28 INFO  --------------------------------------------------
+ 2025-07-18 04:06:09,672 7F140153DB28 INFO  Starting Fail2ban v1.1.0
+ 2025-07-18 04:06:09,675 7F13FFA99B38 INFO  Observer start...
+ 2025-07-18 04:06:09,686 7F140153DB28 INFO  Connected to fail2ban persistent database '/config/fail2ban/fail2ban.sqlite3'
+ 2025-07-18 04:06:09,694 7F140153DB28 INFO  Creating new jail 'nginx-403'
+ 2025-07-18 04:06:09,713 7F140153DB28 INFO  Jail 'nginx-403' uses poller {}
+ 2025-07-18 04:06:09,713 7F140153DB28 INFO  Initiated 'polling' backend
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO    maxRetry: 3
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO    findtime: 300
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO    banTime: 3600
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO    encoding: UTF-8
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO  Added logfile: '/var/log/access.log' (pos = 173725, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 04:06:09,714 7F140153DB28 INFO  Creating new jail 'nginx-bad-request'
+ 2025-07-18 04:06:09,715 7F140153DB28 INFO  Jail 'nginx-bad-request' uses poller {}
+ 2025-07-18 04:06:09,715 7F140153DB28 INFO  Initiated 'polling' backend
+ 2025-07-18 04:06:09,716 7F140153DB28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-18 04:06:09,717 7F140153DB28 INFO    maxRetry: 3
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO    findtime: 300
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO    banTime: 3600
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO    encoding: UTF-8
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO  Added logfile: '/var/log/access.log' (pos = 173725, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO  Creating new jail 'nginx-botsearch'
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO  Jail 'nginx-botsearch' uses poller {}
+ 2025-07-18 04:06:09,718 7F140153DB28 INFO  Initiated 'polling' backend
+ 2025-07-18 04:06:09,721 7F140153DB28 INFO    date pattern `'{^LN-BEG}%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?'`: `{^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day[T ]24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?`
+ 2025-07-18 04:06:09,721 7F140153DB28 INFO    maxRetry: 5
+ 2025-07-18 04:06:09,721 7F140153DB28 INFO    findtime: 600
+ 2025-07-18 04:06:09,745 7F140153DB28 INFO    banTime: 3600
+ 2025-07-18 04:06:09,745 7F140153DB28 INFO    encoding: UTF-8
+ 2025-07-18 04:06:09,745 7F140153DB28 INFO  Added logfile: '/var/log/access.log' (pos = 173725, hash = b1b7e3999e26cc112f72742489a69d1480721f44)
+ 2025-07-18 04:06:09,746 7F140153DB28 INFO  Creating new jail 'nginx-http-auth'
+ 2025-07-18 04:06:09,746 7F140153DB28 INFO  Jail 'nginx-http-auth' uses poller {}
+ 2025-07-18 04:06:09,746 7F140153DB28 INFO  Initiated 'polling' backend
+ 2025-07-18 04:06:09,747 7F140153DB28 INFO    maxRetry: 3
+ 2025-07-18 04:06:09,747 7F140153DB28 INFO    findtime: 600
+ 2025-07-18 04:06:09,747 7F140153DB28 INFO    banTime: 3600
+ 2025-07-18 04:06:09,747 7F140153DB28 INFO    encoding: UTF-8
+ 2025-07-18 04:06:09,747 7F140153DB28 INFO  Added logfile: '/var/log/error.log' (pos = 169876, hash = dfba8043ddfb83238cdf81044f5557e7a9da15d3)
+ 2025-07-18 04:06:09,762 7F140153DB28 INFO  Jail 'nginx-403' started
+ 2025-07-18 04:06:09,773 7F140153DB28 INFO  Jail 'nginx-bad-request' started
+ 2025-07-18 04:06:09,774 7F140153DB28 INFO  Jail 'nginx-botsearch' started
+ 2025-07-18 04:06:09,783 7F140153DB28 INFO  Jail 'nginx-http-auth' started
+ 2025-07-18 04:47:45,497 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 04:47:45
+ 2025-07-18 06:57:33,600 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 06:57:33
+ 2025-07-18 07:37:30,063 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 07:37:29
+ 2025-07-18 07:45:02,652 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 07:45:02
+ 2025-07-18 10:53:11,703 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 10:53:10
+ 2025-07-18 11:15:00,864 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 11:15:00
+ 2025-07-18 11:15:10,068 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 11:15:09
+ 2025-07-18 11:17:46,137 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 11:17:45
+ 2025-07-18 11:17:46,386 7F13FF042B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR 7f14008f3a50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR 7f14008f3a50 -- returned 4
+ 2025-07-18 11:17:46,409 7F13FF042B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f14004e9e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f14004ea5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-18 11:21:36,239 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 11:21:35
+ 2025-07-18 12:17:45,672 7F13FF042B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-18 13:24:01,924 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 13:24:01
+ 2025-07-18 13:58:36,022 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 13:58:35
+ 2025-07-18 13:58:36,022 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 13:58:35
+ 2025-07-18 15:55:33,449 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 15:55:32
+ 2025-07-18 17:02:11,585 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:02:11
+ 2025-07-18 17:53:28,456 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:53:27
+ 2025-07-18 17:53:28,457 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:53:27
+ 2025-07-18 17:53:28,457 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:53:27
+ 2025-07-18 17:53:28,457 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:53:28
+ 2025-07-18 17:53:28,457 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 17:53:28
+ 2025-07-18 17:53:28,844 7F13FF042B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR 7f14008f3a50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR 7f14008f3a50 -- returned 4
+ 2025-07-18 17:53:28,855 7F13FF042B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f14004e9e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f14004ea5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-18 18:08:34,831 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 18:08:34
+ 2025-07-18 18:08:34,831 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 18:08:34
+ 2025-07-18 18:08:34,831 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 18:08:34
+ 2025-07-18 18:08:35,168 7F13FF042B38 WARNI [nginx-bad-request] 10.0.0.2 already banned
+ 2025-07-18 18:56:52,424 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 18:56:52
+ 2025-07-18 19:08:34,249 7F13FF042B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-18 21:04:22,981 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 21:04:22
+ 2025-07-18 23:33:18,583 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 23:33:18
+ 2025-07-18 23:56:26,361 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-18 23:56:25
+ 2025-07-19 00:06:11,608 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 00:06:11
+ 2025-07-19 00:06:11,809 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 00:06:11
+ 2025-07-19 00:06:12,009 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 00:06:11
+ 2025-07-19 00:06:12,610 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 00:06:12
+ 2025-07-19 00:06:12,701 7F13FF042B38 NOTIC [nginx-bad-request] Ban 10.0.0.2
+ 2025-07-19 00:06:12,712 7F13FF042B38 ERROR 7f14008f3a50 -- exec: { iptables -w -C f2b-nginx-bad-request -j RETURN >/dev/null 2>&1; } || { iptables -w -N f2b-nginx-bad-request || true; iptables -w -A f2b-nginx-bad-request -j RETURN; }
+for proto in $(echo 'tcp' | sed 's/,/ /g'); do
+{ iptables -w -C INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request >/dev/null 2>&1; } || { iptables -w -I INPUT -p $proto -m multiport --dports http,https -j f2b-nginx-bad-request; }
+done
+ 2025-07-19 00:06:12,712 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-19 00:06:12,713 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-19 00:06:12,713 7F13FF042B38 ERROR 7f14008f3a50 -- stderr: 'iptables v1.8.11 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)'
+ 2025-07-19 00:06:12,713 7F13FF042B38 ERROR 7f14008f3a50 -- returned 4
+ 2025-07-19 00:06:12,713 7F13FF042B38 ERROR Failed to execute ban jail 'nginx-bad-request' action 'iptables-multiport' info 'ActionInfo({'ip': '10.0.0.2', 'family': 'inet4', 'fid': <function Actions.ActionInfo.<lambda> at 0x7f14004e9e40>, 'raw-ticket': <function Actions.ActionInfo.<lambda> at 0x7f14004ea5c0>})': Error starting action Jail('nginx-bad-request')/iptables-multiport: 'Script error'
+ 2025-07-19 01:06:11,272 7F13FF042B38 NOTIC [nginx-bad-request] Unban 10.0.0.2
+ 2025-07-19 04:04:40,966 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 04:04:40
+ 2025-07-19 04:06:02,202 7F13FF249B38 INFO  [nginx-bad-request] Found 10.0.0.2 - 2025-07-19 04:06:01
+ 2025-07-19 04:09:45,247 7F140153DB28 INFO  Shutdown in progress...
+ 2025-07-19 04:09:45,247 7F140153DB28 INFO  Observer stop ... try to end queue 5 seconds
+ 2025-07-19 04:09:45,267 7F13FFA99B38 INFO  Observer stopped, 0 events remaining.
+ 2025-07-19 04:09:45,308 7F140153DB28 INFO  Stopping all jails
+ 2025-07-19 04:09:45,308 7F140153DB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-19 04:09:45,308 7F140153DB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-19 04:09:45,308 7F140153DB28 INFO  Removed logfile: '/var/log/access.log'
+ 2025-07-19 04:09:45,308 7F140153DB28 INFO  Removed logfile: '/var/log/error.log'
+ 2025-07-19 04:09:45,359 7F13FF042B38 NOTIC [nginx-bad-request] Flush ticket(s) with iptables-multiport
+ 2025-07-19 04:09:45,359 7F13FEC34B38 NOTIC [nginx-botsearch] Flush ticket(s) with iptables-multiport
+ 2025-07-19 04:09:45,359 7F13FE826B38 NOTIC [nginx-http-auth] Flush ticket(s) with iptables-multiport
+ 2025-07-19 04:09:45,359 7F13FF450B38 NOTIC [nginx-403] Flush ticket(s) with iptables-NGINX-403
+ 2025-07-19 04:09:45,515 7F140153DB28 INFO  Jail 'nginx-403' stopped
+ 2025-07-19 04:09:45,515 7F140153DB28 INFO  Jail 'nginx-bad-request' stopped
+ 2025-07-19 04:09:45,515 7F140153DB28 INFO  Jail 'nginx-botsearch' stopped
+ 2025-07-19 04:09:45,516 7F140153DB28 INFO  Jail 'nginx-http-auth' stopped
+ 2025-07-19 04:09:45,516 7F140153DB28 INFO  Connection to database closed.
+ 2025-07-19 04:09:45,516 7F140153DB28 INFO  Exiting Fail2ban
