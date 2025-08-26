@@ -8,24 +8,19 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - guac-net
+    contianer-name: web
     secrets:
-     # - RDP_ENCRYPTION_KEY
       - SECRET_KEY
       - AWS_REGION
       - windows_key
       - GUAC_DB_HOST
       - INSTANCE_TYPE
       - KEY_NAME
-      #- SECURITY_GROUP
-      #- AMI_WIN_PASS
       - GUACAMOLE_SERVER
-     # - DB_HOST
       - DB_USER
       - DB_NAME
       - DB_PASSWORD
       - GUACAMOLE_PASSWORD
-      #- GUACAMOLE_USERNAME
-      #- AWS_S3_BUCKET_NAME
       - DATABASE_NAME
       - DATABASE_USER
       - DATABASE_PASSWORD
@@ -41,6 +36,7 @@ services:
       - POSTGRES_DB=BigBoss+ 
       - POSTGRES_USER=tim    
       - POSTGRES_PASSWORD_FILE=/run/secrets/web_postgres_password
+    contianer-name: webdb
     volumes:
       - ./pgdata:/var/lib/postgresql/data 
     networks:
@@ -53,6 +49,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    contianer-name: nginx
     depends_on:
       - web
       - guacamole
@@ -74,6 +71,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - VERBOSITY=-vv
+    contianer-name: fail2ban  
     volumes:
       - ./fail2ban_config:/config
       - ./logs:/var/log:ro
@@ -82,11 +80,9 @@ services:
 
   guacamole:
     image: guacamole/guacamole:1.5.5
-      #configs:
-      #- source: guac-webxml
-      #  target: /usr/local/tomcat/webapps/guacamole/WEB-INF/web.xml
     volumes:
       - ./extensions/guacamole-auth-jdbc-postgresql-1.5.5.jar:/etc/guacamole/extensions/guacamole-auth-jdbc-postgresql-1.5.5.jar
+    contianer-name: guacamole
     environment:
       - GUACD_HOSTNAME=guacd
       - GUACD_PORT=4822
@@ -110,7 +106,8 @@ services:
     networks:
       - guac-net
     volumes:
-    - ./recordings:/prserver/recordings  
+    - ./recordings:/prserver/recordings
+    contianer-name: guacd 
     deploy:
       restart_policy:
         condition: on-failure
@@ -122,6 +119,7 @@ services:
     image: sheemer44/custom-guac-recorder
     networks:
       - guac-net
+    contianer-name: custom-guac-recorder
     volumes:
       - ./recordings:/prserver/recordings
     environment:
@@ -133,6 +131,7 @@ services:
       - POSTGRES_DB=guac_db
       - POSTGRES_USER=guac_user
       - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+    contianer-name: db
     secrets:
       - postgres_password
     volumes:
@@ -167,8 +166,6 @@ secrets:
     external: true
   AWS_REGION:
     external: true
-  #AMI_ID:
-  #  external: true
   GUAC_DB_HOST:
     external: true
   INSTANCE_TYPE:
@@ -179,38 +176,22 @@ secrets:
     external: true
   SECURITY_GROUP:
     external: true
-  #AMI_WIN_PASS:
-  #  external: true
   GUACAMOLE_SERVER:
     external: true
-  #DB_HOST:
-  #  external: true
   DB_USER:
     external: true
   DB_PASSWORD:
     external: true
   DB_NAME:
     external: true
-  #GUACAMOLE_USERNAME:
-  #  external: true
   GUACAMOLE_PASSWORD:
     external: true
-  #AWS_SECRET_ACCESS_KEY:
-  #  external: true
-  #AWS_ACCESS_KEY_ID: 
-  #  external: true
   DATABASE_NAME:
     external: true
   DATABASE_USER:
     external: true
   DATABASE_PASSWORD:
     external: true
-  #DATABASE_HOST:
-  #  external: true
-  #DATABASE_PORT:
-  #  external: true
-  #RDP_ENCRYPTION_KEY:
-  #  external: true
   postgres_password:
     external: true  
   web_postgres_password:
