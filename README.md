@@ -37,7 +37,7 @@ Currently, you’ll still need to update the nginx.conf file manually (instructi
 
     Navigate to docker/nginx.conf.
 
-    Update the server name, paths, or ports as needed for your environment.
+    Update as needed for your environment.
 
 🚀 Running the Application
 
